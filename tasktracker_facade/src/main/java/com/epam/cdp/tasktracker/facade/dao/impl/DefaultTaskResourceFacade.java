@@ -3,21 +3,12 @@ package com.epam.cdp.tasktracker.facade.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.epam.cdp.tasktracker.facade.dao.TaskResourceFacade;
+import com.epam.cdp.tasktracker.facade.dao.Facade;
 import com.epam.cdp.tasktracker.facade.dto.model.TaskDTO;
 
-public class DefaultTaskResourceFacade implements TaskResourceFacade {
-
-	public TaskDTO getTaskbyId(Long id) {
-		// TODO: Implement getting task across service layer by id
-		TaskDTO task = new TaskDTO();
-		task.setId(id);
-		task.setDescription("task number: " + id);
-		task.setTitle("Task" + id);
-		return task;
-	}
-
-	public List<TaskDTO> getAllTasks() {
+public class DefaultTaskResourceFacade implements Facade<TaskDTO> {
+	
+	public List<TaskDTO> getAllEntities() {
 		// TODO: Implement getting all task across service layer
 		List<TaskDTO> tasks = new ArrayList<TaskDTO>();
 		for (long i = 1; i < 11; i++) {
@@ -30,21 +21,28 @@ public class DefaultTaskResourceFacade implements TaskResourceFacade {
 		return tasks;
 	}
 
-	public void createTask(TaskDTO task) {
-		// TODO: Implement storing task across service layer
+	public TaskDTO getEntityById(Long parseLong) {
+		// TODO: Implement getting task across service layer by id
+		TaskDTO task = new TaskDTO();
+		task.setId(parseLong);
+		task.setDescription("task number: " + parseLong);
+		task.setTitle("Task" + parseLong);
+		return task;
 	}
 
-	public void removeTaskById(Long id) {
-		// TODO: Implement remove task by id across service layer
-
+	public void createEntity(TaskDTO newResource) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	public void removeTask(TaskDTO task) {
-		// TODO: Implement remove task across facade layer
+	public void removeEntityById(Long id) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	public void updateTaskById(Long id, TaskDTO task) {
-		// TODO: Implement update task by id across facade layer
+	public void updateEntityById(Long id, TaskDTO entity) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
