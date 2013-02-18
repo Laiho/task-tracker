@@ -9,14 +9,6 @@ public class UserDTO {
 	
 	private boolean enabled;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String getUsername() {
 		return username;
 	}
@@ -41,5 +33,12 @@ public class UserDTO {
 		this.enabled = enabled;
 	}
 	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 }

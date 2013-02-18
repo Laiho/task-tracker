@@ -2,30 +2,38 @@ package com.epam.cdp.tasktracker.facade.dao.impl;
 
 import java.util.List;
 
-import com.epam.cdp.tasktracker.facade.dao.Facade;
-import com.epam.cdp.tasktracker.facade.dto.model.UserDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import com.epam.cdp.tasktracker.facade.dao.Facade;
+import com.epam.cdp.tasktracker.facade.dto.assembler.impl.UserDTOAssembler;
+import com.epam.cdp.tasktracker.facade.dto.model.UserDTO;
+import com.epam.cdp.tasktracker.model.User;
+import com.epam.cdp.tasktracker.service.UserService;
+
+@Component
 public class DefaultUserResourceFacade implements Facade<UserDTO> {
 
-	public List<UserDTO> getAllEntities() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public UserDTO getEntityById(Long parseLong) {
-		UserDTO user = new UserDTO();
-		user.setId(parseLong);
-		user.setPassword("user" + parseLong);
-		user.setUsername("user" + parseLong);
-		user.setEnabled(true);
-		return user;
-	}
-
-	public void createEntity(UserDTO newResource) {
-		// TODO Auto-generated method stub
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private UserDTOAssembler userDTOAssembler;
 		
+	public List<UserDTO> getAllEntities() {
+		System.out.println(userService);
+		List<User> users = userService.getAllUsers();
+		return userDTOAssembler.createDTOList(users);
 	}
 
+	public UserDTO getEntityById(Long id) {
+		return userDTOAssembler.createDTO(userService.getUserById(id));
+	}
+
+	public void createEntity(UserDTO userDTO) {
+		userService.createUser(userDTOAssembler.createEntity(userDTO));
+	}
+	
 	public void removeEntityById(Long id) {
 		// TODO Auto-generated method stub
 		
