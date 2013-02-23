@@ -9,6 +9,7 @@ import com.epam.cdp.tasktracker.model.User;
 @Component
 public class UserDTOAssembler extends AbstractDTOAssembler<UserDTO, User> {
 
+	@Override
 	public UserDTO createDTO(final User user) {
 		UserDTO userDTO = new UserDTO();
 		userDTO.setId(user.getId());
@@ -18,6 +19,7 @@ public class UserDTOAssembler extends AbstractDTOAssembler<UserDTO, User> {
 		return userDTO;
 	}
 	
+	@Override
 	public User createEntity(final UserDTO userDTO) {
 		User user = new User();
 		user.setId(userDTO.getId());
