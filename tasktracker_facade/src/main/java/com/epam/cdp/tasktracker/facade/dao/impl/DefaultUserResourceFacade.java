@@ -20,7 +20,7 @@ public class DefaultUserResourceFacade implements Facade<UserDTO> {
 	@Autowired
 	private UserDTOAssembler userDTOAssembler;
 		
-	public List<UserDTO> getAllEntities() {
+	public List<UserDTO> getAllEntity() {
 		System.out.println(userService);
 		List<User> users = userService.getAllUsers();
 		return userDTOAssembler.createDTOList(users);
@@ -30,8 +30,9 @@ public class DefaultUserResourceFacade implements Facade<UserDTO> {
 		return userDTOAssembler.createDTO(userService.getUserById(id));
 	}
 
-	public void createEntity(UserDTO userDTO) {
-		userService.createUser(userDTOAssembler.createEntity(userDTO));
+	public UserDTO createEntity(UserDTO userDTO) {
+		User user = userService.createUser(userDTOAssembler.createEntity(userDTO));
+		return userDTOAssembler.createDTO(user);
 	}
 	
 	public void removeEntityById(Long id) {

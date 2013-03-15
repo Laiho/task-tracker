@@ -6,6 +6,7 @@ import java.lang.reflect.Type;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.epam.cdp.tasktracker.dao.GenericDAO;
@@ -26,6 +27,7 @@ public class GenericDAOImpl<T> implements GenericDAO<T> {
 
 	public T save(final T entity) {
 		em.persist(entity);
+		em.flush();
 		return entity;
 	}
 

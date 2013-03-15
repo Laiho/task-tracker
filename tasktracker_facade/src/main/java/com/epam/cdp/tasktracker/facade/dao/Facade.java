@@ -4,11 +4,11 @@ import java.util.List;
 
 public interface Facade<T> {
 
-	List<T> getAllEntities();
+	List<T> getAllEntity();
 
 	T getEntityById(Long parseLong);
 	
-	void createEntity(T newResource);
+	T createEntity(T newResource);
 	
 	void removeEntityById(Long id);
 	

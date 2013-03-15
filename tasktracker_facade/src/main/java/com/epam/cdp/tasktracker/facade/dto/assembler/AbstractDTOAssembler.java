@@ -10,11 +10,11 @@ public abstract class AbstractDTOAssembler<T, V> {
 	public abstract V createEntity(T dto);
 	
 	public List<T> createDTOList(final List<V> entityList) {
-		List<T> userDTOList = new ArrayList<T>();
-		for (V user : entityList) {
-			userDTOList.add(createDTO(user));
+		List<T> dtoList = new ArrayList<T>();
+		for (V entity : entityList) {
+			dtoList.add(createDTO(entity));
 		}
-		return userDTOList;
+		return dtoList;
 	}
 	
 	public List<V> createEntityList(final List<T> dtoList) {
