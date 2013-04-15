@@ -1,0 +1,10 @@
+/.settings
+/.project
+/.classpath
+.DS_Store
+/dist
+/logs
+/target
+/bin
+/-H
+.springBeans
