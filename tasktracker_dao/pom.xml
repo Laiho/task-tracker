@@ -8,12 +8,25 @@
 		<artifactId>task-tracker</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>com.epam.cdp.tasktracker.model</groupId>
-	<artifactId>tasktracker_model</artifactId>
+	<groupId>com.epam.cdp.tasktracker.dao</groupId>
+	<artifactId>tasktracker_dao</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
-	<name>tasktracker_model</name>
+	<name>tasktracker_dao</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>com.epam.cdp.tasktracker.model</groupId>
+			<artifactId>tasktracker_model</artifactId>
+			<version>0.0.2-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 </project>
